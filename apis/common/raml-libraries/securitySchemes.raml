@@ -23,7 +23,10 @@ securitySchemes:
       authorizationUri: https://api.service.hmrc.gov.uk/oauth/authorize
       accessTokenUri: https://api.service.hmrc.gov.uk/oauth/token
       authorizationGrants: [ authorization_code, client_credentials ]
-      scopes:
+      scopes: [ 
+        "write:self-assessment", "read:self-assessment",
+        "write:sent-invitations","read:sent-invitations", "write:received-invitations", "read:received-invitations"
+        ]
   x-application:
     type: x-application
     description: Application restricted endpoints require a server token. This must be passed as an Authorization header with type Bearer.

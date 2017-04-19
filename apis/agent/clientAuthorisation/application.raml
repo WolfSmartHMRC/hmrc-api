@@ -10,15 +10,15 @@ documentation:
  - title: Overview
    content: !include docs/overview.md
  - title: Versioning
-   content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/versioning.md
+   content: !include ../../../apis/common/documentation/versioning.md
  - title: Errors
-   content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/errors.md
+   content: !include ../../../apis/common/documentation/errors.md
 
 uses:
-  sec: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml
-  headers: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/headers.raml
-  annotations: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml
-  types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
+  sec: ../../../apis/common/raml-libraries/securitySchemes.raml
+  headers: ../../../apis/common/raml-libraries/headers.raml
+  annotations: ../../../apis/common/raml-libraries/annotations.raml
+  types: ../../../apis/common/raml-libraries/types.raml
 
 types:
 
@@ -175,20 +175,14 @@ traits:
     responses:
       200:
         body:
-          application/json:
-            description: A list of invitations.
-            type: !include schemas/invitations.json
-            example: !include examples/get-agency-invitations-sent-example.json
+          application/json: !include schemas/invitations.json
   post:
     is: [clientRegistrationRequired]
     displayName: Create a new invitation
     (annotations.scope): "write:sent-invitations"
     securedBy: [ sec.oauth_2_0: { scopes: [ "write:sent-invitations" ] } ]
     body:
-      application/json:
-        description: Create a new invitation.
-        type: !include schemas/create-invitation.json
-        example: !include examples/post-agency-invitations-sent-example.json
+      application/json: !include schemas/create-invitation.json
     responses:
       201:
         description: The invitation was successfully created.
@@ -239,10 +233,7 @@ traits:
       responses:
         200:
           body:
-            application/json:
-                description: Returns the invitation.
-                type: !include schemas/invitation.json
-                example: !include examples/get-agency-invitation-sent-example.json
+            application/json: !include schemas/invitation.json
         401:
           description: The agent must be authenticated and authorised (logged-in) to use this resource
         403:
@@ -287,10 +278,7 @@ traits:
     responses:
       200:
         body:
-          application/json:
-            description: A list of invitations.
-            type: !include schemas/invitations.json
-            example: !include examples/get-client-invitations-received-example.json
+          application/json: !include schemas/invitations.json
       401:
         description: The client must be authenticated and authorised (logged-in) to use this resource
       403:
@@ -306,10 +294,7 @@ traits:
       responses:
         200:
           body:
-            application/json:
-                description: Returns the invitation.
-                type: !include schemas/invitation.json
-                example: !include examples/get-client-invitation-example.json
+            application/json: !include schemas/invitation.json
         401:
           description: The client must be authenticated and authorised (logged-in) to use this resource
         403:

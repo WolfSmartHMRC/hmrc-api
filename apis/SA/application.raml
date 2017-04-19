@@ -8,10 +8,10 @@ baseUri: https://api.service.hmrc.gov.uk/
 mediaType: application/json
 
 uses:
-  sec: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml
-  headers: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/headers.raml
-  annotations: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml
-  types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
+  types: ../../apis/common/raml-libraries/types.raml
+  sec: ../../apis/common/raml-libraries/securitySchemes.raml
+  headers: ../../apis/common/raml-libraries/headers.raml
+  annotations: ../../apis/common/raml-libraries/annotations.raml
 
 documentation:
   - title: Overview
@@ -19,9 +19,9 @@ documentation:
   - title: Terminology
     content: !include docs/terminology.md
   - title: Versioning
-    content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/versioning.md
+    content: !include ../../apis/common/documentation/versioning.md
   - title: Errors
-    content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/errors.md
+    content: !include ../../apis/common/documentation/errors.md
   - title: Error Codes
     content: !include docs/error_codes.md
 
@@ -105,9 +105,7 @@ traits:
         (annotations.scope): "write:self-assessment"
         securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
         body:
-          application/json:
-            type: !include schemas/SelfEmployment_Create_Without_ID.json
-            example: !include examples/self-employment/SelfEmploymentCreate.json
+          application/json: !include schemas/SelfEmployment_Create_Without_ID.json
         responses:
           201:
             headers:
@@ -174,9 +172,7 @@ traits:
         responses:
           200:
             body:
-              application/json:
-                type: !include schemas/SelfEmployments.json
-                example: !include examples/self-employment/SelfEmployments.json
+              application/json: !include schemas/SelfEmployments.json
           400:
             body:
               application/json:
@@ -201,9 +197,7 @@ traits:
           (annotations.scope): "write:self-assessment"
           securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
           body:
-            application/json:
-              type: !include schemas/SelfEmployment_Update.json
-              example: !include examples/self-employment/SelfEmploymentUpdate.json
+           application/json: !include schemas/SelfEmployment_Update.json
           responses:
             204:
             400:
@@ -244,12 +238,10 @@ traits:
           (annotations.scope): "read:self-assessment"
           securedBy: [ sec.oauth_2_0: { scopes: [ "read:self-assessment" ] } ]
           responses:
-            200:
-              body:
-                application/json:
-                  type: !include schemas/SelfEmployment_Without_ID.json
-                  example: !include examples/self-employment/SelfEmployment.json
-            400:
+             200:
+                body:
+                  application/json: !include schemas/SelfEmployment_Without_ID.json
+             400:
                 body:
                   application/json:
                     type: types.errorResponse
@@ -258,7 +250,7 @@ traits:
                         description: Invalid NINO
                         value:
                           code: NINO_INVALID
-            404:
+             404:
                 body:
                   application/json:
                     type: types.errorResponse
@@ -278,9 +270,7 @@ traits:
             responses:
               200:
                 body:
-                  application/json:
-                    type: !include schemas/Obligations.json
-                    example: !include examples/Obligations.json
+                  application/json: !include schemas/Obligations.json
               400:
                 body:
                   application/json:
@@ -308,9 +298,7 @@ traits:
             (annotations.scope): "write:self-assessment"
             securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
             body:
-              application/json:
-                type: !include schemas/SE_Period_Without_ID.json
-                example: !include examples/self-employment/Period.json
+              application/json: !include schemas/SE_Period_Without_ID.json
             responses:
               201:
                 headers:
@@ -369,9 +357,7 @@ traits:
             responses:
               200:
                 body:
-                  application/json:
-                    type: !include schemas/Periods.json
-                    example: !include examples/Periods.json
+                  application/json: !include schemas/Periods.json
               400:
                 body:
                   application/json:
@@ -405,9 +391,7 @@ traits:
               responses:
                 200:
                   body:
-                    application/json:
-                      type: !include schemas/SE_Period_Without_ID.json
-                      example: !include examples/self-employment/Period.json
+                    application/json: !include schemas/SE_Period_Without_ID.json
                 400:
                   body:
                     application/json:
@@ -434,9 +418,7 @@ traits:
               (annotations.scope): "write:self-assessment"
               securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
               body:
-                application/json:
-                  type: !include schemas/SE_UpdatePeriod.json
-                  example: !include examples/self-employment/UpdatePeriod.json
+                application/json: !include schemas/SE_UpdatePeriod.json
               responses:
                 204:
                 400:
@@ -479,9 +461,7 @@ traits:
             (annotations.scope): "write:self-assessment"
             securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
             body:
-              application/json:
-                type: !include schemas/SE_AnnualSummary.json
-                example: !include examples/self-employment/AnnualSummary.json
+              application/json: !include schemas/SE_AnnualSummary.json
             responses:
               204:
               400:
@@ -532,9 +512,7 @@ traits:
             responses:
               200:
                 body:
-                  application/json:
-                    type: !include schemas/SE_AnnualSummary.json
-                    example: !include examples/self-employment/AnnualSummary.json
+                  application/json: !include schemas/SE_AnnualSummary.json
               400:
                 body:
                   application/json:
@@ -568,9 +546,7 @@ traits:
         (annotations.scope): "write:self-assessment"
         securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
         body:
-          application/json:
-            type: !include schemas/UkProperties.json
-            example: !include examples/uk-properties/UkProperties.json
+          application/json: !include schemas/UkProperties.json
         responses:
           201:
             headers:
@@ -595,9 +571,7 @@ traits:
               Location:
                 example: /self-assessment/ni/{nino}/uk-properties
             body:
-              application/json:
-                type: !include schemas/Error.json
-                example: !include examples/errors/CONFLICT.json
+              application/json: !include schemas/Error.json
       get:
         displayName: Get a UK property business
         description: Get a UK property business
@@ -608,9 +582,7 @@ traits:
         responses:
           200:
             body:
-              application/json:
-                type: !include schemas/UkProperties.json
-                example: !include examples/uk-properties/UkProperties.json
+              application/json: !include schemas/UkProperties.json
           400:
             body:
               application/json:
@@ -640,9 +612,7 @@ traits:
           responses:
             200:
               body:
-                application/json:
-                  type: !include schemas/Obligations.json
-                  example: !include examples/Obligations.json
+                application/json: !include schemas/Obligations.json
             400:
               body:
                 application/json:
@@ -671,9 +641,7 @@ traits:
             (annotations.scope): "write:self-assessment"
             securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
             body:
-              application/json:
-                type: !include schemas/UK_PROP_OTHER_Period_Without_ID.json
-                example: !include examples/uk-properties/other/Period.json
+              application/json: !include schemas/UK_PROP_OTHER_Period_Without_ID.json
             responses:
               201:
                 headers:
@@ -707,9 +675,7 @@ traits:
                           code: INVALID_MONETARY_AMOUNT
               409:
                 body:
-                  application/json:
-                    type: !include schemas/Error.json
-                    example: !include examples/errors/CONFLICT.json
+                  application/json: !include schemas/Error.json
           get:
             displayName: List all non FHL UK property update periods [test only]
             description: List all non FHL UK property update periods. This API is not available in production.
@@ -720,9 +686,7 @@ traits:
             responses:
               200:
                 body:
-                  application/json:
-                    type: !include schemas/Periods.json
-                    example: !include examples/Periods.json
+                  application/json: !include schemas/Periods.json
               400:
                 body:
                   application/json:
@@ -757,9 +721,7 @@ traits:
               responses:
                 200:
                   body:
-                    application/json:
-                      type: !include schemas/UK_PROP_OTHER_Period_Without_ID.json
-                      example: !include examples/uk-properties/other/Period.json
+                    application/json: !include schemas/UK_PROP_OTHER_Period_Without_ID.json
                 400:
                   body:
                     application/json:
@@ -786,9 +748,7 @@ traits:
               (annotations.scope): "write:self-assessment"
               securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
               body:
-                application/json:
-                  type: !include schemas/UK_PROP_OTHER_UpdatePeriod.json
-                  example: !include examples/uk-properties/other/UpdatePeriod.json
+                application/json: !include schemas/UK_PROP_OTHER_UpdatePeriod.json
               responses:
                 204:
                 400:
@@ -828,9 +788,7 @@ traits:
               (annotations.scope): "write:self-assessment"
               securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
               body:
-                application/json:
-                  type: !include schemas/UK_PROP_OTHER_AnnualSummary.json
-                  example: !include examples/uk-properties/other/AnnualSummary.json
+                application/json: !include schemas/UK_PROP_OTHER_AnnualSummary.json
               responses:
                 204:
                 400:
@@ -869,9 +827,7 @@ traits:
               responses:
                 200:
                   body:
-                    application/json:
-                      type: !include schemas/UK_PROP_OTHER_AnnualSummary.json
-                      example: !include examples/uk-properties/other/AnnualSummary.json
+                    application/json: !include schemas/UK_PROP_OTHER_AnnualSummary.json
                 400:
                   body:
                     application/json:
@@ -904,9 +860,7 @@ traits:
             (annotations.scope): "write:self-assessment"
             securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
             body:
-              application/json:
-                type: !include schemas/UK_PROP_FHL_Period_Without_ID.json
-                example: !include examples/uk-properties/fhl/Period.json
+              application/json: !include schemas/UK_PROP_FHL_Period_Without_ID.json
             responses:
               201:
                 headers:
@@ -940,9 +894,7 @@ traits:
                           code: INVALID_MONETARY_AMOUNT
               409:
                 body:
-                  application/json:
-                    type: !include schemas/Error.json
-                    example: !include examples/errors/CONFLICT.json
+                  application/json: !include schemas/Error.json
           get:
             displayName: List all FHL UK property update periods [test only]
             description: List all FHL UK property update periods. This API is not available in production.
@@ -953,9 +905,7 @@ traits:
             responses:
               200:
                 body:
-                  application/json:
-                    type: !include schemas/Periods.json
-                    example: !include examples/Periods.json
+                  application/json: !include schemas/Periods.json
               400:
                 body:
                   application/json:
@@ -990,9 +940,7 @@ traits:
               responses:
                 200:
                   body:
-                    application/json:
-                      type: !include schemas/UK_PROP_FHL_Period_Without_ID.json
-                      example: !include examples/uk-properties/fhl/Period.json
+                    application/json: !include schemas/UK_PROP_FHL_Period_Without_ID.json
                 400:
                   body:
                     application/json:
@@ -1019,9 +967,7 @@ traits:
               (annotations.scope): "write:self-assessment"
               securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
               body:
-                application/json:
-                  type: !include schemas/UK_PROP_FHL_UpdatePeriod.json
-                  example: !include examples/uk-properties/fhl/UpdatePeriod.json
+                application/json: !include schemas/UK_PROP_FHL_UpdatePeriod.json
               responses:
                 204:
                 400:
@@ -1065,9 +1011,7 @@ traits:
               (annotations.scope): "write:self-assessment"
               securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
               body:
-                application/json:
-                  type: !include schemas/UK_PROP_FHL_AnnualSummary.json
-                  example: !include examples/uk-properties/fhl/AnnualSummary.json
+                application/json: !include schemas/UK_PROP_FHL_AnnualSummary.json
               responses:
                 204:
                 400:
@@ -1106,9 +1050,7 @@ traits:
               responses:
                 200:
                   body:
-                    application/json:
-                      type: !include schemas/UK_PROP_FHL_AnnualSummary.json
-                      example: !include examples/uk-properties/fhl/AnnualSummary.json
+                    application/json: !include schemas/UK_PROP_FHL_AnnualSummary.json
                 400:
                   body:
                     application/json:
@@ -1150,9 +1092,7 @@ traits:
           (annotations.scope): "write:self-assessment"
           securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
           body:
-            application/json:
-              type: !include schemas/DIV_AnnualSummary.json
-              example: !include examples/dividends/AnnualSummary.json
+            application/json: !include schemas/DIV_AnnualSummary.json
           responses:
             204:
             400:
@@ -1182,9 +1122,7 @@ traits:
           responses:
             200:
               body:
-                application/json:
-                  type: !include schemas/DIV_AnnualSummary.json
-                  example: !include examples/dividends/AnnualSummary.json
+                application/json: !include schemas/DIV_AnnualSummary.json
             400:
               body:
                 application/json:
@@ -1219,9 +1157,7 @@ traits:
         (annotations.scope): "write:self-assessment"
         securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
         body:
-          application/json:
-            type: !include schemas/SavingsAccount_Without_ID.json
-            example: !include examples/savings-accounts/SavingsAccount.json
+          application/json: !include schemas/SavingsAccount_Without_ID.json
         responses:
           201:
             headers:
@@ -1255,9 +1191,7 @@ traits:
         responses:
           200:
             body:
-              application/json:
-                type: !include schemas/SavingsAccounts.json
-                example: !include examples/savings-accounts/SavingsAccounts.json
+              application/json: !include schemas/SavingsAccounts.json
           400:
             body:
               application/json:
@@ -1276,9 +1210,7 @@ traits:
           (annotations.scope): "write:self-assessment"
           securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
           body:
-            application/json:
-              type: !include schemas/SavingsAccount_Without_ID.json
-              example: !include examples/savings-accounts/SavingsAccount.json
+            application/json: !include schemas/SavingsAccount_Without_ID.json
           responses:
             204:
             400:
@@ -1317,9 +1249,7 @@ traits:
           responses:
             200:
               body:
-                application/json:
-                  type: !include schemas/SavingsAccount_Without_ID.json
-                  example: !include examples/savings-accounts/SavingsAccount.json
+                application/json: !include schemas/SavingsAccount_Without_ID.json
             400:
               body:
                 application/json:
@@ -1347,9 +1277,7 @@ traits:
             (annotations.scope): "write:self-assessment"
             securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
             body:
-              application/json:
-                type: !include schemas/SavingsAccount_AnnualSummary.json
-                example: !include examples/savings-accounts/AnnualSummary.json
+              application/json: !include schemas/SavingsAccount_AnnualSummary.json
             responses:
               204:
               400:
@@ -1388,9 +1316,7 @@ traits:
             responses:
               200:
                 body:
-                  application/json:
-                    type: !include schemas/SavingsAccount_AnnualSummary.json
-                    example: !include examples/savings-accounts/AnnualSummary.json
+                  application/json: !include schemas/SavingsAccount_AnnualSummary.json
               400:
                 body:
                   application/json:
@@ -1425,9 +1351,7 @@ traits:
         (annotations.scope): "write:self-assessment"
         securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
         body:
-          application/json:
-            type: !include schemas/TaxCalculationYear.json
-            example: !include examples/calculation/TaxCalculationYear.json
+          application/json: !include schemas/TaxCalculationYear.json
         responses:
           202:
             headers:
@@ -1435,9 +1359,7 @@ traits:
                 example: /self-assessment/ni/{nino}/calculations/{calculationId}
                 description: Location of the calculation result
             body:
-              application/json:
-                type: !include schemas/TaxCalculationETA.json
-                example: !include examples/calculation/TaxCalculationETA.json
+              application/json: !include schemas/TaxCalculationETA.json
           400:
             body:
               application/json:
@@ -1470,9 +1392,7 @@ traits:
           responses:
             200:
               body:
-                application/json:
-                  type: !include schemas/TaxCalculation.json
-                  example: !include examples/calculation/TaxCalculation.json
+                application/json: !include schemas/TaxCalculation.json
             404:
               body:
                 application/json:
