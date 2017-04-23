@@ -1,0 +1,146 @@
+[
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'read:sent-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 157,
+        "column": 44,
+        "position": 5510
+      },
+      "end": {
+        "line": 157,
+        "column": 67,
+        "position": 5533
+      }
+    },
+    "isWarning": false
+  },
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'write:sent-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 185,
+        "column": 44,
+        "position": 6546
+      },
+      "end": {
+        "line": 185,
+        "column": 68,
+        "position": 6570
+      }
+    },
+    "isWarning": false
+  },
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'read:sent-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 237,
+        "column": 46,
+        "position": 8550
+      },
+      "end": {
+        "line": 237,
+        "column": 69,
+        "position": 8573
+      }
+    },
+    "isWarning": false
+  },
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'write:sent-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 257,
+        "column": 48,
+        "position": 9540
+      },
+      "end": {
+        "line": 257,
+        "column": 72,
+        "position": 9564
+      }
+    },
+    "isWarning": false
+  },
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'read:received-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 279,
+        "column": 44,
+        "position": 10634
+      },
+      "end": {
+        "line": 279,
+        "column": 71,
+        "position": 10661
+      }
+    },
+    "isWarning": false
+  },
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'read:received-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 304,
+        "column": 46,
+        "position": 11756
+      },
+      "end": {
+        "line": 304,
+        "column": 73,
+        "position": 11783
+      }
+    },
+    "isWarning": false
+  },
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'write:received-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 329,
+        "column": 48,
+        "position": 12984
+      },
+      "end": {
+        "line": 329,
+        "column": 76,
+        "position": 13012
+      }
+    },
+    "isWarning": false
+  },
+  {
+    "code": "INVALID_SECURITY_SCHEME_SCOPE",
+    "message": "The 'write:received-invitations' scope is not allowed for the 'oauth_2_0' security scheme. Allowed scopes are: 'null'.",
+    "path": "application.raml",
+    "range": {
+      "start": {
+        "line": 345,
+        "column": 48,
+        "position": 13894
+      },
+      "end": {
+        "line": 345,
+        "column": 76,
+        "position": 13922
+      }
+    },
+    "isWarning": false
+  }
+]

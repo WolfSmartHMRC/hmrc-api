@@ -4,7 +4,7 @@
   "description": "Tools for processing hmrc api specs",
   "main": "index.js",
   "scripts": {
-    "genSchema": "node tools/raml2jsonSchema apis",
+    "genSchema": "node tools/convert/raml2jsonSchema.js apis"
   },
   "author": "andy@wolfsmart.net",
   "license": "MIT",

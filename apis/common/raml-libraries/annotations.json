@@ -1,0 +1,136 @@
+{
+  "annotationTypes": [
+    {
+      "config": {
+        "name": "config",
+        "displayName": "config",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "object"
+        ],
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "group": {
+        "name": "group",
+        "displayName": "group",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "name": "name",
+            "displayName": "name",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "type": [
+              "string"
+            ],
+            "required": true,
+            "__METADATA__": {
+              "primitiveValuesMeta": {
+                "displayName": {
+                  "calculated": true
+                },
+                "required": {
+                  "insertedAsDefault": true
+                }
+              }
+            }
+          },
+          "description": {
+            "name": "description",
+            "displayName": "description",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "type": [
+              "string"
+            ],
+            "required": true,
+            "__METADATA__": {
+              "primitiveValuesMeta": {
+                "displayName": {
+                  "calculated": true
+                },
+                "required": {
+                  "insertedAsDefault": true
+                }
+              }
+            }
+          }
+        },
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "scope": {
+        "name": "scope",
+        "displayName": "scope",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "string"
+        ],
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            },
+            "type": {
+              "insertedAsDefault": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "fieldOptionalityUnknown": {
+        "name": "fieldOptionalityUnknown",
+        "displayName": "fieldOptionalityUnknown",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "nil"
+        ],
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "sandboxData": {
+        "name": "sandboxData",
+        "displayName": "sandboxData",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "string"
+        ],
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            },
+            "type": {
+              "insertedAsDefault": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "usage": "Collection of common annotations"
+}

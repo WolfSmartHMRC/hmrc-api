@@ -1,0 +1,1816 @@
+{
+  "uses": [
+    {
+      "key": "sec",
+      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml"
+    },
+    {
+      "key": "headers",
+      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/headers.raml"
+    },
+    {
+      "key": "annotations",
+      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml"
+    },
+    {
+      "key": "types",
+      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml"
+    }
+  ],
+  "types": [
+    {
+      "Regime": {
+        "name": "Regime",
+        "displayName": "Regime",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "string"
+        ],
+        "description": "The tax regime",
+        "enum": [
+          "mtd-sa"
+        ],
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "Status": {
+        "name": "Status",
+        "displayName": "Statuses",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "string"
+        ],
+        "enum": [
+          "Pending",
+          "Accepted",
+          "Rejected",
+          "Cancelled"
+        ],
+        "__METADATA__": {
+          "primitiveValuesMeta": {}
+        }
+      }
+    }
+  ],
+  "traits": [
+    {
+      "acceptHeader": {
+        "headers": {
+          "Accept": {
+            "name": "Accept",
+            "displayName": "Accept",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "type": [
+              "string"
+            ],
+            "example": "application/vnd.hmrc.1.0+json",
+            "required": true,
+            "description": "Specifies the version of the API that you want to call. See [versioning](/api-documentation/docs/reference-guide#versioning).",
+            "__METADATA__": {
+              "primitiveValuesMeta": {
+                "displayName": {
+                  "calculated": true
+                }
+              }
+            },
+            "structuredExample": {
+              "value": "application/vnd.hmrc.1.0+json",
+              "strict": true,
+              "name": null,
+              "structuredValue": "application/vnd.hmrc.1.0+json"
+            }
+          }
+        },
+        "name": "acceptHeader",
+        "__METADATA__": {
+          "calculated": true
+        }
+      }
+    },
+    {
+      "contentHeader": {
+        "headers": {
+          "Content-Type": {
+            "name": "Content-Type",
+            "displayName": "Content-Type",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "type": [
+              "string"
+            ],
+            "example": "application/json",
+            "required": true,
+            "description": "Specifies the format of the request body, which must be JSON.",
+            "__METADATA__": {
+              "primitiveValuesMeta": {
+                "displayName": {
+                  "calculated": true
+                }
+              }
+            },
+            "structuredExample": {
+              "value": "application/json",
+              "strict": true,
+              "name": null,
+              "structuredValue": "application/json"
+            }
+          }
+        },
+        "name": "contentHeader",
+        "__METADATA__": {
+          "calculated": true
+        }
+      }
+    },
+    {
+      "loginRequired": {
+        "responses": {
+          "401": {
+            "code": "401",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"INVALID_CREDENTIALS\"\n}",
+                    "strict": true,
+                    "name": "invalidCredentials",
+                    "description": "Invalid Authentication information provided.",
+                    "structuredValue": {
+                      "code": "INVALID_CREDENTIALS"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "loginRequired"
+      }
+    },
+    {
+      "permissionOnAgencyRequired": {
+        "responses": {
+          "403": {
+            "code": "403",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"NO_PERMISSION_ON_AGENCY\"\n}",
+                    "strict": true,
+                    "name": "noPermissionOnAgency",
+                    "description": "The logged in user is not permitted to access invitations for the specified agency.",
+                    "structuredValue": {
+                      "code": "NO_PERMISSION_ON_AGENCY"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "permissionOnAgencyRequired"
+      }
+    },
+    {
+      "permissionOnClientRequired": {
+        "responses": {
+          "403": {
+            "code": "403",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"NO_PERMISSION_ON_CLIENT\"\n}",
+                    "strict": true,
+                    "name": "noPermissionOnArn",
+                    "description": "The logged in user is not permitted to see the invitations for the specified client.",
+                    "structuredValue": {
+                      "code": "NO_PERMISSION_ON_CLIENT"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "permissionOnClientRequired"
+      }
+    },
+    {
+      "mustBeAnAgent": {
+        "responses": {
+          "403": {
+            "code": "403",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"NOT_AN_AGENT\"\n}",
+                    "strict": true,
+                    "name": "notAnAgent",
+                    "description": "The logged in user is not an agent.",
+                    "structuredValue": {
+                      "code": "NOT_AN_AGENT"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "mustBeAnAgent"
+      }
+    },
+    {
+      "mustBeASaClient": {
+        "responses": {
+          "403": {
+            "code": "403",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"SA_ENROLMENT_NOT_FOUND\"\n}",
+                    "strict": true,
+                    "name": "saEnrolmentNotFound",
+                    "description": "The Client must have an active IR-SA enrolment.",
+                    "structuredValue": {
+                      "code": "SA_ENROLMENT_NOT_FOUND"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "mustBeASaClient"
+      }
+    },
+    {
+      "agentRegistrationRequired": {
+        "responses": {
+          "403": {
+            "code": "403",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"AGENT_REGISTRATION_NOT_FOUND\"\n}",
+                    "strict": true,
+                    "name": "agentRegistrationNotFound",
+                    "description": "The Agent's MTDfB registration was not found.",
+                    "structuredValue": {
+                      "code": "AGENT_REGISTRATION_NOT_FOUND"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "agentRegistrationRequired"
+      }
+    },
+    {
+      "clientRegistrationRequired": {
+        "responses": {
+          "403": {
+            "code": "403",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"CLIENT_REGISTRATION_NOT_FOUND\"\n}",
+                    "strict": true,
+                    "name": "clientRegistrationNotFound",
+                    "description": "The Client's MTDfB registration was not found.",
+                    "structuredValue": {
+                      "code": "CLIENT_REGISTRATION_NOT_FOUND"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "clientRegistrationRequired"
+      }
+    },
+    {
+      "invitationMustHaveValidStatus": {
+        "responses": {
+          "403": {
+            "code": "403",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"INVALID_INVITATION_STATUS\"\n}",
+                    "strict": true,
+                    "name": "invalidInvitationStatus",
+                    "description": "The requested state transition is not permitted given the invitation's current status.",
+                    "structuredValue": {
+                      "code": "INVALID_INVITATION_STATUS"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "invitationMustHaveValidStatus"
+      }
+    },
+    {
+      "invitationSpecified": {
+        "responses": {
+          "404": {
+            "code": "404",
+            "body": {
+              "application/json": {
+                "name": "application/json",
+                "displayName": "application/json",
+                "typePropertyKind": "TYPE_EXPRESSION",
+                "type": [
+                  "types.errorResponse"
+                ],
+                "examples": [
+                  {
+                    "value": "{\n  \"code\": \"INVITATION_NOT_FOUND\"\n}",
+                    "strict": true,
+                    "name": "invitationNotFound",
+                    "description": "The specified invitation was not found.",
+                    "structuredValue": {
+                      "code": "INVITATION_NOT_FOUND"
+                    }
+                  }
+                ],
+                "__METADATA__": {
+                  "primitiveValuesMeta": {
+                    "displayName": {
+                      "calculated": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "invitationSpecified"
+      }
+    }
+  ],
+  "title": "Agent Client Authorisation",
+  "description": "An API for agents and clients akin to the paper 64-8 form.  The production version of this API is not yet available, only the test version which should be accessed using your test credentials.",
+  "version": "0.0",
+  "baseUri": "https://api.service.hmrc.gov.uk/",
+  "protocols": [
+    "HTTPS"
+  ],
+  "mediaType": [
+    "application/json",
+    "application/hal+json"
+  ],
+  "resources": [
+    {
+      "methods": [
+        {
+          "annotations": {
+            "annotations.scope": {
+              "structuredValue": "read:sent-invitations",
+              "name": "annotations.scope"
+            }
+          },
+          "queryParameters": {
+            "status": {
+              "name": "status",
+              "displayName": "status",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "Status"
+              ],
+              "example": "Pending",
+              "required": false,
+              "description": "Filter invitations by status. If multiple 'status' filtering parameters are supplied then only the first is considered.",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "Pending",
+                "strict": true,
+                "name": null,
+                "structuredValue": "Pending"
+              }
+            },
+            "clientId": {
+              "name": "clientId",
+              "displayName": "clientId",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "string"
+              ],
+              "example": "client123",
+              "required": false,
+              "description": "Client's top level ID for their MTD registration (not regime specific).",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "client123",
+                "strict": true,
+                "name": null,
+                "structuredValue": "client123"
+              }
+            },
+            "regime": {
+              "name": "regime",
+              "displayName": "regime",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "Regime"
+              ],
+              "example": "mtd-sa",
+              "required": false,
+              "description": "The tax regime.",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "mtd-sa",
+                "strict": true,
+                "name": null,
+                "structuredValue": "mtd-sa"
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "code": "200",
+              "body": {
+                "application/json": {
+                  "name": "application/json",
+                  "displayName": "application/json",
+                  "typePropertyKind": "JSON",
+                  "schemaPath": "schemas/invitations.json",
+                  "type": [
+                    "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"_links\": {\r\n      \"type\": \"object\",\r\n      \"description\": \"Related resources\",\r\n      \"properties\": {\r\n        \"self\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"A link to the current resource\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"invitations\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"type\": \"object\",\r\n            \"description\": \"An array of links to individual Invitation resources\",\r\n            \"properties\": {\r\n              \"href\": {\r\n                \"type\": \"string\"\r\n              }\r\n            },\r\n            \"required\": [\r\n              \"href\"\r\n            ]\r\n          }\r\n        }\r\n      },\r\n      \"required\": [\r\n        \"self\",\r\n        \"invitations\"\r\n      ]\r\n    },\r\n    \"_embedded\": {\r\n      \"type\": \"object\",\r\n      \"properties\": {\r\n        \"invitations\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"$ref\": \"invitation.json\"\r\n          }\r\n        }\r\n      },\r\n      \"required\": [\r\n        \"invitations\"\r\n      ]\r\n    }\r\n  },\r\n  \"required\": [\r\n    \"_links\",\r\n    \"_embedded\"\r\n  ]\r\n}"
+                  ],
+                  "example": {
+                    "_links": {
+                      "self": {
+                        "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent"
+                      },
+                      "invitations": [
+                        {
+                          "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                        },
+                        {
+                          "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12"
+                        }
+                      ]
+                    },
+                    "_embedded": {
+                      "invitations": [
+                        {
+                          "_links": {
+                            "cancel": {
+                              "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11/cancel"
+                            },
+                            "self": {
+                              "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                            }
+                          },
+                          "regime": "mtd-sa",
+                          "clientId": "client123",
+                          "postcode": "A11 1AA",
+                          "arn": "AARN9999999",
+                          "created": "2017-01-25T15:20:14.917Z",
+                          "lastUpdated": "2017-01-25T15:20:14.917Z",
+                          "status": "Pending"
+                        },
+                        {
+                          "_links": {
+                            "cancel": {
+                              "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12/cancel"
+                            },
+                            "self": {
+                              "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12"
+                            }
+                          },
+                          "regime": "mtd-sa",
+                          "clientId": "client234",
+                          "postcode": "A22 2AA",
+                          "arn": "AARN9999999",
+                          "created": "2017-01-26T15:20:14.927Z",
+                          "lastUpdated": "2017-01-26T15:20:14.927Z",
+                          "status": "Pending"
+                        }
+                      ]
+                    }
+                  },
+                  "description": "A list of invitations.",
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "displayName": {
+                        "calculated": true
+                      }
+                    }
+                  },
+                  "structuredExample": {
+                    "value": "{\r\n  \"_links\": {\r\n    \"self\": {\r\n      \"href\": \"/agent-client-authorisation/agencies/AARN9999999/invitations/sent\"\r\n    },\r\n    \"invitations\": [\r\n      {\r\n        \"href\": \"/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11\"\r\n      },\r\n      {\r\n        \"href\": \"/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12\"\r\n      }\r\n    ]\r\n  },\r\n  \"_embedded\": {\r\n    \"invitations\": [\r\n      {\r\n        \"_links\": {\r\n          \"cancel\": {\r\n            \"href\": \"/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11/cancel\"\r\n          },\r\n          \"self\": {\r\n            \"href\": \"/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11\"\r\n          }\r\n        },\r\n        \"regime\": \"mtd-sa\",\r\n        \"clientId\": \"client123\",\r\n        \"postcode\": \"A11 1AA\",\r\n        \"arn\": \"AARN9999999\",\r\n        \"created\": \"2017-01-25T15:20:14.917Z\",\r\n        \"lastUpdated\": \"2017-01-25T15:20:14.917Z\",\r\n        \"status\": \"Pending\"\r\n      },\r\n      {\r\n        \"_links\": {\r\n          \"cancel\": {\r\n            \"href\": \"/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12/cancel\"\r\n          },\r\n          \"self\": {\r\n            \"href\": \"/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12\"\r\n          }\r\n        },\r\n        \"regime\": \"mtd-sa\",\r\n        \"clientId\": \"client234\",\r\n        \"postcode\": \"A22 2AA\",\r\n        \"arn\": \"AARN9999999\",\r\n        \"created\": \"2017-01-26T15:20:14.927Z\",\r\n        \"lastUpdated\": \"2017-01-26T15:20:14.927Z\",\r\n        \"status\": \"Pending\"\r\n      }\r\n    ]\r\n  }\r\n}",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": {
+                      "_links": {
+                        "self": {
+                          "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent"
+                        },
+                        "invitations": [
+                          {
+                            "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                          },
+                          {
+                            "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12"
+                          }
+                        ]
+                      },
+                      "_embedded": {
+                        "invitations": [
+                          {
+                            "_links": {
+                              "cancel": {
+                                "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11/cancel"
+                              },
+                              "self": {
+                                "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                              }
+                            },
+                            "regime": "mtd-sa",
+                            "clientId": "client123",
+                            "postcode": "A11 1AA",
+                            "arn": "AARN9999999",
+                            "created": "2017-01-25T15:20:14.917Z",
+                            "lastUpdated": "2017-01-25T15:20:14.917Z",
+                            "status": "Pending"
+                          },
+                          {
+                            "_links": {
+                              "cancel": {
+                                "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12/cancel"
+                              },
+                              "self": {
+                                "href": "/agent-client-authorisation/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc12"
+                              }
+                            },
+                            "regime": "mtd-sa",
+                            "clientId": "client234",
+                            "postcode": "A22 2AA",
+                            "arn": "AARN9999999",
+                            "created": "2017-01-26T15:20:14.927Z",
+                            "lastUpdated": "2017-01-26T15:20:14.927Z",
+                            "status": "Pending"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTPS"
+          ],
+          "securedBy": [
+            {
+              "sec.oauth_2_0": {
+                "scopes": [
+                  "read:sent-invitations"
+                ]
+              }
+            }
+          ],
+          "description": "Retrieves a list of invitations sent by the agency.",
+          "displayName": "Get invitations sent by the agency",
+          "method": "get",
+          "__METADATA__": {
+            "primitiveValuesMeta": {
+              "protocols": {
+                "calculated": true
+              }
+            }
+          }
+        },
+        {
+          "annotations": {
+            "annotations.scope": {
+              "structuredValue": "write:sent-invitations",
+              "name": "annotations.scope"
+            }
+          },
+          "responses": {
+            "201": {
+              "code": "201",
+              "headers": [
+                {
+                  "name": "Location",
+                  "displayName": "Location",
+                  "typePropertyKind": "TYPE_EXPRESSION",
+                  "type": [
+                    "string"
+                  ],
+                  "example": "/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11",
+                  "required": true,
+                  "description": "Location of the invitation that was created.",
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "displayName": {
+                        "calculated": true
+                      },
+                      "type": {
+                        "insertedAsDefault": true
+                      },
+                      "required": {
+                        "insertedAsDefault": true
+                      }
+                    }
+                  },
+                  "structuredExample": {
+                    "value": "/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": "/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                  }
+                }
+              ],
+              "description": "The invitation was successfully created."
+            },
+            "400": {
+              "code": "400",
+              "body": {
+                "application/json": {
+                  "name": "application/json",
+                  "displayName": "application/json",
+                  "typePropertyKind": "TYPE_EXPRESSION",
+                  "type": [
+                    "types.errorResponse"
+                  ],
+                  "examples": [
+                    {
+                      "value": "{\n  \"code\": \"POSTCODE_FORMAT_INVALID\"\n}",
+                      "strict": true,
+                      "name": "invalidPostcode",
+                      "description": "The submitted postcode does not match the expected format.",
+                      "structuredValue": {
+                        "code": "POSTCODE_FORMAT_INVALID"
+                      }
+                    }
+                  ],
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "displayName": {
+                        "calculated": true
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "code": "403",
+              "body": {
+                "application/json": {
+                  "name": "application/json",
+                  "displayName": "application/json",
+                  "typePropertyKind": "TYPE_EXPRESSION",
+                  "type": [
+                    "types.errorResponse"
+                  ],
+                  "examples": [
+                    {
+                      "value": "{\n  \"code\": \"POSTCODE_DOES_NOT_MATCH\"\n}",
+                      "strict": true,
+                      "name": "postcodeDoesNotMatch",
+                      "description": "The submitted postcode did not match the client's postcode as held by HMRC.",
+                      "structuredValue": {
+                        "code": "POSTCODE_DOES_NOT_MATCH"
+                      }
+                    }
+                  ],
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "displayName": {
+                        "calculated": true
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "501": {
+              "code": "501",
+              "body": {
+                "application/json": {
+                  "name": "application/json",
+                  "displayName": "application/json",
+                  "typePropertyKind": "TYPE_EXPRESSION",
+                  "type": [
+                    "types.errorResponse"
+                  ],
+                  "examples": [
+                    {
+                      "value": "{\n  \"code\": \"UNSUPPORTED_REGIME\"\n}",
+                      "strict": true,
+                      "name": "postcodeDoesNotMatch",
+                      "description": "The submitted regime is not currently supported by this API.",
+                      "structuredValue": {
+                        "code": "UNSUPPORTED_REGIME"
+                      }
+                    }
+                  ],
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "displayName": {
+                        "calculated": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "body": {
+            "application/json": {
+              "name": "application/json",
+              "displayName": "application/json",
+              "typePropertyKind": "JSON",
+              "schemaPath": "schemas/create-invitation.json",
+              "type": [
+                "{\r\n  \"type\": \"object\",\r\n  \"description\": \"Creates a new invitation between the agency and client\",\r\n  \"properties\": {\r\n    \"regime\": {\r\n      \"$ref\": \"regime.json\"\r\n    },\r\n    \"clientId\": {\r\n      \"type\": \"string\",\r\n      \"description\" : \"Client's top level ID for their MTD registration (not regime specific)\"\r\n    },\r\n    \"postcode\": {\r\n      \"type\": \"string\",\r\n      \"description\" : \"The Client's post code\"\r\n    }\r\n  },\r\n  \"required\": [\r\n    \"regime\",\r\n    \"clientId\",\r\n    \"postcode\"\r\n  ]\r\n}"
+              ],
+              "example": {
+                "regime": "mtd-sa",
+                "clientId": "client123",
+                "postcode": "A11 1AA"
+              },
+              "description": "Create a new invitation.",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "{\r\n  \"regime\": \"mtd-sa\",\r\n  \"clientId\": \"client123\",\r\n  \"postcode\": \"A11 1AA\"\r\n}\r\n",
+                "strict": true,
+                "name": null,
+                "structuredValue": {
+                  "regime": "mtd-sa",
+                  "clientId": "client123",
+                  "postcode": "A11 1AA"
+                }
+              }
+            }
+          },
+          "protocols": [
+            "HTTPS"
+          ],
+          "is": [
+            "clientRegistrationRequired"
+          ],
+          "securedBy": [
+            {
+              "sec.oauth_2_0": {
+                "scopes": [
+                  "write:sent-invitations"
+                ]
+              }
+            }
+          ],
+          "displayName": "Create a new invitation",
+          "method": "post",
+          "__METADATA__": {
+            "primitiveValuesMeta": {
+              "protocols": {
+                "calculated": true
+              }
+            }
+          }
+        }
+      ],
+      "is": [
+        "headers.acceptHeader",
+        "loginRequired",
+        "mustBeAnAgent",
+        "agentRegistrationRequired",
+        "permissionOnAgencyRequired"
+      ],
+      "uriParameters": {
+        "arn": {
+          "name": "arn",
+          "displayName": "arn",
+          "typePropertyKind": "TYPE_EXPRESSION",
+          "type": [
+            "string"
+          ],
+          "example": "AARN9999999",
+          "required": true,
+          "description": "The MTD platform Agent Registration Number.",
+          "__METADATA__": {
+            "primitiveValuesMeta": {
+              "displayName": {
+                "calculated": true
+              },
+              "required": {
+                "insertedAsDefault": true
+              }
+            }
+          },
+          "structuredExample": {
+            "value": "AARN9999999",
+            "strict": true,
+            "name": null,
+            "structuredValue": "AARN9999999"
+          }
+        }
+      },
+      "relativeUri": "/agent-client-authorisation/agencies/{arn}/invitations/sent",
+      "displayName": "/agent-client-authorisation/agencies/{arn}/invitations/sent",
+      "resources": [
+        {
+          "methods": [
+            {
+              "annotations": {
+                "annotations.scope": {
+                  "structuredValue": "read:sent-invitations",
+                  "name": "annotations.scope"
+                }
+              },
+              "responses": {
+                "200": {
+                  "code": "200",
+                  "body": {
+                    "application/json": {
+                      "name": "application/json",
+                      "displayName": "application/json",
+                      "typePropertyKind": "JSON",
+                      "schemaPath": "schemas/invitation.json",
+                      "type": [
+                        "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"_links\": {\r\n      \"type\": \"object\",\r\n      \"properties\": {\r\n        \"reject\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"Link to reject the invitation. Only provided to clients.\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"accept\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"Link to accept the invitation. Only provided to clients.\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"cancel\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"A link to cancel to this invitation. Only provided to agents.\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"self\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"A link to the current resource\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        }\r\n      },\r\n      \"required\": [\r\n        \"self\"\r\n      ]\r\n    },\r\n    \"regime\": {\r\n      \"$ref\": \"regime.json\"\r\n    },\r\n    \"clientId\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"Client's top level ID for their MTD registration (not regime specific)\"\r\n    },\r\n    \"postcode\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"The Client's post code\"\r\n    },\r\n    \"arn\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"The Agent Registration Number for the calling agency\"\r\n    },\r\n    \"created\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"Creation time of the request (RFC3339 / ISO8601 format)\"\r\n    },\r\n    \"lastUpdated\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"Last update time of the request (RFC3339 / ISO8601 format)\"\r\n    },\r\n    \"status\": {\r\n      \"type\": \"string\",\r\n      \"description\" : \"The current status of the invitation\",\r\n      \"oneOf\": [\r\n        {\r\n          \"enum\": [ \"Pending\" ],\r\n          \"description\": \"The invitation has been created, it has not been accepted or rejected by the client. Only the service can set this status\"\r\n        },\r\n        {\r\n          \"enum\": [ \"Accepted\" ],\r\n          \"description\": \"The client has accepted the invitation. Only the client can set this status\"\r\n        },\r\n        {\r\n          \"enum\": [ \"Rejected\" ],\r\n          \"description\": \"The client has rejected the invitation. Only the client can set this status\"\r\n        },\r\n        {\r\n          \"enum\": [ \"Cancelled\" ],\r\n          \"description\": \"The agency has cancelled the invitation. Only the agency can set this status\"\r\n        }\r\n      ]\r\n    }\r\n  },\r\n  \"required\": [\r\n    \"_links\",\r\n    \"regime\",\r\n    \"clientId\",\r\n    \"postcode\",\r\n    \"arn\",\r\n    \"created\",\r\n    \"lastUpdated\",\r\n    \"status\"\r\n  ]\r\n}"
+                      ],
+                      "example": {
+                        "_links": {
+                          "self": {
+                            "href": "/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                          },
+                          "cancel": {
+                            "href": "/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                          }
+                        },
+                        "created": "2017-01-25T15:20:14.917Z",
+                        "lastUpdated": "2017-01-25T15:20:14.917Z",
+                        "arn": "AARN9999999",
+                        "regime": "mtd-sa",
+                        "clientId": "client123",
+                        "postcode": "A11 1AA",
+                        "status": "Pending"
+                      },
+                      "description": "Returns the invitation.",
+                      "__METADATA__": {
+                        "primitiveValuesMeta": {
+                          "displayName": {
+                            "calculated": true
+                          }
+                        }
+                      },
+                      "structuredExample": {
+                        "value": "{\r\n  \"_links\": {\r\n    \"self\": {\r\n      \"href\": \"/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11\"\r\n    },\r\n    \"cancel\": {\r\n      \"href\": \"/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11\"\r\n    }\r\n  },\r\n  \"created\": \"2017-01-25T15:20:14.917Z\",\r\n  \"lastUpdated\": \"2017-01-25T15:20:14.917Z\",\r\n  \"arn\": \"AARN9999999\",\r\n  \"regime\": \"mtd-sa\",\r\n  \"clientId\": \"client123\",\r\n  \"postcode\": \"A11 1AA\",\r\n  \"status\": \"Pending\"\r\n}\r\n",
+                        "strict": true,
+                        "name": null,
+                        "structuredValue": {
+                          "_links": {
+                            "self": {
+                              "href": "/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                            },
+                            "cancel": {
+                              "href": "/agencies/AARN9999999/invitations/sent/5888c22e11000011007afc11"
+                            }
+                          },
+                          "created": "2017-01-25T15:20:14.917Z",
+                          "lastUpdated": "2017-01-25T15:20:14.917Z",
+                          "arn": "AARN9999999",
+                          "regime": "mtd-sa",
+                          "clientId": "client123",
+                          "postcode": "A11 1AA",
+                          "status": "Pending"
+                        }
+                      }
+                    }
+                  }
+                },
+                "401": {
+                  "code": "401",
+                  "description": "The agent must be authenticated and authorised (logged-in) to use this resource"
+                },
+                "403": {
+                  "code": "403",
+                  "description": "The agent is not permitted to see this invitation."
+                },
+                "404": {
+                  "code": "404",
+                  "description": "The invitation with the specified id does not exist."
+                }
+              },
+              "protocols": [
+                "HTTPS"
+              ],
+              "securedBy": [
+                {
+                  "sec.oauth_2_0": {
+                    "scopes": [
+                      "read:sent-invitations"
+                    ]
+                  }
+                }
+              ],
+              "description": "Retrieve a sent invitation.",
+              "displayName": "Get a sent invitation",
+              "method": "get",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "protocols": {
+                    "calculated": true
+                  }
+                }
+              }
+            }
+          ],
+          "is": [
+            "headers.acceptHeader",
+            "loginRequired",
+            "mustBeAnAgent",
+            "agentRegistrationRequired",
+            "permissionOnAgencyRequired",
+            "invitationSpecified"
+          ],
+          "uriParameters": {
+            "invitationId": {
+              "name": "invitationId",
+              "displayName": "invitationId",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "string"
+              ],
+              "example": "5888c22e11000011007afc11",
+              "required": true,
+              "description": "A unique invitation id",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  },
+                  "required": {
+                    "insertedAsDefault": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "5888c22e11000011007afc11",
+                "strict": true,
+                "name": null,
+                "structuredValue": "5888c22e11000011007afc11"
+              }
+            }
+          },
+          "relativeUri": "/{invitationId}",
+          "displayName": "/{invitationId}",
+          "resources": [
+            {
+              "methods": [
+                {
+                  "annotations": {
+                    "annotations.scope": {
+                      "structuredValue": "write:sent-invitations",
+                      "name": "annotations.scope"
+                    }
+                  },
+                  "responses": {
+                    "204": {
+                      "code": "204",
+                      "description": "Invitation has been cancelled."
+                    },
+                    "401": {
+                      "code": "401",
+                      "description": "The agent must be authenticated and authorised (logged-in) to use this resource"
+                    },
+                    "403": {
+                      "code": "403",
+                      "description": "The agent is not permitted to cancel this invitation, for example because it has already been accepted or rejected."
+                    },
+                    "404": {
+                      "code": "404",
+                      "description": "The invitation with the specified id does not exist."
+                    }
+                  },
+                  "protocols": [
+                    "HTTPS"
+                  ],
+                  "securedBy": [
+                    {
+                      "sec.oauth_2_0": {
+                        "scopes": [
+                          "write:sent-invitations"
+                        ]
+                      }
+                    }
+                  ],
+                  "description": "Cancel an invitation.",
+                  "displayName": "Cancel an invitation",
+                  "method": "put",
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "protocols": {
+                        "calculated": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "is": [
+                "headers.acceptHeader",
+                "loginRequired",
+                "mustBeAnAgent",
+                "agentRegistrationRequired",
+                "permissionOnAgencyRequired",
+                "invitationSpecified",
+                "invitationMustHaveValidStatus"
+              ],
+              "relativeUri": "/cancel",
+              "displayName": "/cancel",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "relativeUriPathSegments": [
+                "cancel"
+              ],
+              "absoluteUri": "https://api.service.hmrc.gov.uk/agent-client-authorisation/agencies/{arn}/invitations/sent/{invitationId}/cancel"
+            }
+          ],
+          "__METADATA__": {
+            "primitiveValuesMeta": {
+              "displayName": {
+                "calculated": true
+              }
+            }
+          },
+          "relativeUriPathSegments": [
+            "{invitationId}"
+          ],
+          "absoluteUri": "https://api.service.hmrc.gov.uk/agent-client-authorisation/agencies/{arn}/invitations/sent/{invitationId}"
+        }
+      ],
+      "__METADATA__": {
+        "primitiveValuesMeta": {
+          "displayName": {
+            "calculated": true
+          }
+        }
+      },
+      "relativeUriPathSegments": [
+        "agent-client-authorisation",
+        "agencies",
+        "{arn}",
+        "invitations",
+        "sent"
+      ],
+      "absoluteUri": "https://api.service.hmrc.gov.uk/agent-client-authorisation/agencies/{arn}/invitations/sent"
+    },
+    {
+      "methods": [
+        {
+          "annotations": {
+            "annotations.scope": {
+              "structuredValue": "read:received-invitations",
+              "name": "annotations.scope"
+            }
+          },
+          "queryParameters": {
+            "status": {
+              "name": "status",
+              "displayName": "status",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "Status"
+              ],
+              "example": "Pending",
+              "required": false,
+              "description": "filter invitations by status. If multiple 'status' filtering parameters are supplied then only the first is considered.",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "Pending",
+                "strict": true,
+                "name": null,
+                "structuredValue": "Pending"
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "code": "200",
+              "body": {
+                "application/json": {
+                  "name": "application/json",
+                  "displayName": "application/json",
+                  "typePropertyKind": "JSON",
+                  "schemaPath": "schemas/invitations.json",
+                  "type": [
+                    "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"_links\": {\r\n      \"type\": \"object\",\r\n      \"description\": \"Related resources\",\r\n      \"properties\": {\r\n        \"self\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"A link to the current resource\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"invitations\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"type\": \"object\",\r\n            \"description\": \"An array of links to individual Invitation resources\",\r\n            \"properties\": {\r\n              \"href\": {\r\n                \"type\": \"string\"\r\n              }\r\n            },\r\n            \"required\": [\r\n              \"href\"\r\n            ]\r\n          }\r\n        }\r\n      },\r\n      \"required\": [\r\n        \"self\",\r\n        \"invitations\"\r\n      ]\r\n    },\r\n    \"_embedded\": {\r\n      \"type\": \"object\",\r\n      \"properties\": {\r\n        \"invitations\": {\r\n          \"type\": \"array\",\r\n          \"items\": {\r\n            \"$ref\": \"invitation.json\"\r\n          }\r\n        }\r\n      },\r\n      \"required\": [\r\n        \"invitations\"\r\n      ]\r\n    }\r\n  },\r\n  \"required\": [\r\n    \"_links\",\r\n    \"_embedded\"\r\n  ]\r\n}"
+                  ],
+                  "example": {
+                    "_links": {
+                      "self": {
+                        "href": "/agent-client-authorisation/clients/client123/invitations/received"
+                      },
+                      "invitations": [
+                        {
+                          "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc"
+                        },
+                        {
+                          "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd"
+                        }
+                      ]
+                    },
+                    "_embedded": {
+                      "invitations": [
+                        {
+                          "_links": {
+                            "reject": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc/reject"
+                            },
+                            "accept": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc/accept"
+                            },
+                            "self": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc"
+                            }
+                          },
+                          "regime": "mtd-sa",
+                          "clientId": "client123",
+                          "postcode": "A11 1AA",
+                          "arn": "AARN9999999",
+                          "created": "2017-01-25T12:54:52.712Z",
+                          "lastUpdated": "2017-01-25T12:54:52.712Z",
+                          "status": "Pending"
+                        },
+                        {
+                          "_links": {
+                            "reject": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd/reject"
+                            },
+                            "accept": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd/accept"
+                            },
+                            "self": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd"
+                            }
+                          },
+                          "regime": "mtd-sa",
+                          "clientId": "client123",
+                          "postcode": "A11 1AA",
+                          "arn": "AARN9999999",
+                          "created": "2017-01-26T12:54:52.712Z",
+                          "lastUpdated": "2017-01-26T12:54:52.712Z",
+                          "status": "Pending"
+                        }
+                      ]
+                    }
+                  },
+                  "description": "A list of invitations.",
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "displayName": {
+                        "calculated": true
+                      }
+                    }
+                  },
+                  "structuredExample": {
+                    "value": "{\r\n  \"_links\": {\r\n    \"self\": {\r\n      \"href\": \"/agent-client-authorisation/clients/client123/invitations/received\"\r\n    },\r\n    \"invitations\": [\r\n      {\r\n        \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc\"\r\n      },\r\n      {\r\n        \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd\"\r\n      }\r\n    ]\r\n  },\r\n  \"_embedded\": {\r\n    \"invitations\": [\r\n      {\r\n        \"_links\": {\r\n          \"reject\": {\r\n            \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc/reject\"\r\n          },\r\n          \"accept\": {\r\n            \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc/accept\"\r\n          },\r\n          \"self\": {\r\n            \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc\"\r\n          }\r\n        },\r\n        \"regime\": \"mtd-sa\",\r\n        \"clientId\": \"client123\",\r\n        \"postcode\": \"A11 1AA\",\r\n        \"arn\": \"AARN9999999\",\r\n        \"created\": \"2017-01-25T12:54:52.712Z\",\r\n        \"lastUpdated\": \"2017-01-25T12:54:52.712Z\",\r\n        \"status\": \"Pending\"\r\n      },\r\n      {\r\n        \"_links\": {\r\n          \"reject\": {\r\n            \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd/reject\"\r\n          },\r\n          \"accept\": {\r\n            \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd/accept\"\r\n          },\r\n          \"self\": {\r\n            \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd\"\r\n          }\r\n        },\r\n        \"regime\": \"mtd-sa\",\r\n        \"clientId\": \"client123\",\r\n        \"postcode\": \"A11 1AA\",\r\n        \"arn\": \"AARN9999999\",\r\n        \"created\": \"2017-01-26T12:54:52.712Z\",\r\n        \"lastUpdated\": \"2017-01-26T12:54:52.712Z\",\r\n        \"status\": \"Pending\"\r\n      }\r\n    ]\r\n  }\r\n}\r\n",
+                    "strict": true,
+                    "name": null,
+                    "structuredValue": {
+                      "_links": {
+                        "self": {
+                          "href": "/agent-client-authorisation/clients/client123/invitations/received"
+                        },
+                        "invitations": [
+                          {
+                            "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc"
+                          },
+                          {
+                            "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd"
+                          }
+                        ]
+                      },
+                      "_embedded": {
+                        "invitations": [
+                          {
+                            "_links": {
+                              "reject": {
+                                "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc/reject"
+                              },
+                              "accept": {
+                                "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc/accept"
+                              },
+                              "self": {
+                                "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efc"
+                              }
+                            },
+                            "regime": "mtd-sa",
+                            "clientId": "client123",
+                            "postcode": "A11 1AA",
+                            "arn": "AARN9999999",
+                            "created": "2017-01-25T12:54:52.712Z",
+                            "lastUpdated": "2017-01-25T12:54:52.712Z",
+                            "status": "Pending"
+                          },
+                          {
+                            "_links": {
+                              "reject": {
+                                "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd/reject"
+                              },
+                              "accept": {
+                                "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd/accept"
+                              },
+                              "self": {
+                                "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f19c5200005200ed1efd"
+                              }
+                            },
+                            "regime": "mtd-sa",
+                            "clientId": "client123",
+                            "postcode": "A11 1AA",
+                            "arn": "AARN9999999",
+                            "created": "2017-01-26T12:54:52.712Z",
+                            "lastUpdated": "2017-01-26T12:54:52.712Z",
+                            "status": "Pending"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "code": "401",
+              "description": "The client must be authenticated and authorised (logged-in) to use this resource"
+            },
+            "403": {
+              "code": "403",
+              "description": "The client is not permitted to see these invitations."
+            }
+          },
+          "protocols": [
+            "HTTPS"
+          ],
+          "securedBy": [
+            {
+              "sec.oauth_2_0": {
+                "scopes": [
+                  "read:received-invitations"
+                ]
+              }
+            }
+          ],
+          "description": "Retrieves a list of invitations received by a client",
+          "displayName": "Get invitations received by a client",
+          "method": "get",
+          "__METADATA__": {
+            "primitiveValuesMeta": {
+              "protocols": {
+                "calculated": true
+              }
+            }
+          }
+        }
+      ],
+      "is": [
+        "headers.acceptHeader",
+        "loginRequired",
+        "mustBeASaClient",
+        "clientRegistrationRequired",
+        "permissionOnClientRequired"
+      ],
+      "uriParameters": {
+        "clientId": {
+          "name": "clientId",
+          "displayName": "clientId",
+          "typePropertyKind": "TYPE_EXPRESSION",
+          "type": [
+            "string"
+          ],
+          "example": "client123",
+          "required": true,
+          "description": "Client's top level ID for their MTD registration (not regime specific).",
+          "__METADATA__": {
+            "primitiveValuesMeta": {
+              "displayName": {
+                "calculated": true
+              },
+              "required": {
+                "insertedAsDefault": true
+              }
+            }
+          },
+          "structuredExample": {
+            "value": "client123",
+            "strict": true,
+            "name": null,
+            "structuredValue": "client123"
+          }
+        }
+      },
+      "relativeUri": "/agent-client-authorisation/clients/{clientId}/invitations/received",
+      "displayName": "/agent-client-authorisation/clients/{clientId}/invitations/received",
+      "resources": [
+        {
+          "methods": [
+            {
+              "annotations": {
+                "annotations.scope": {
+                  "structuredValue": "read:received-invitations",
+                  "name": "annotations.scope"
+                }
+              },
+              "responses": {
+                "200": {
+                  "code": "200",
+                  "body": {
+                    "application/json": {
+                      "name": "application/json",
+                      "displayName": "application/json",
+                      "typePropertyKind": "JSON",
+                      "schemaPath": "schemas/invitation.json",
+                      "type": [
+                        "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"_links\": {\r\n      \"type\": \"object\",\r\n      \"properties\": {\r\n        \"reject\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"Link to reject the invitation. Only provided to clients.\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"accept\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"Link to accept the invitation. Only provided to clients.\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"cancel\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"A link to cancel to this invitation. Only provided to agents.\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        },\r\n        \"self\": {\r\n          \"type\": \"object\",\r\n          \"description\": \"A link to the current resource\",\r\n          \"properties\": {\r\n            \"href\": {\r\n              \"type\": \"string\"\r\n            }\r\n          },\r\n          \"required\": [\r\n            \"href\"\r\n          ]\r\n        }\r\n      },\r\n      \"required\": [\r\n        \"self\"\r\n      ]\r\n    },\r\n    \"regime\": {\r\n      \"$ref\": \"regime.json\"\r\n    },\r\n    \"clientId\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"Client's top level ID for their MTD registration (not regime specific)\"\r\n    },\r\n    \"postcode\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"The Client's post code\"\r\n    },\r\n    \"arn\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"The Agent Registration Number for the calling agency\"\r\n    },\r\n    \"created\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"Creation time of the request (RFC3339 / ISO8601 format)\"\r\n    },\r\n    \"lastUpdated\": {\r\n      \"type\": \"string\",\r\n      \"description\": \"Last update time of the request (RFC3339 / ISO8601 format)\"\r\n    },\r\n    \"status\": {\r\n      \"type\": \"string\",\r\n      \"description\" : \"The current status of the invitation\",\r\n      \"oneOf\": [\r\n        {\r\n          \"enum\": [ \"Pending\" ],\r\n          \"description\": \"The invitation has been created, it has not been accepted or rejected by the client. Only the service can set this status\"\r\n        },\r\n        {\r\n          \"enum\": [ \"Accepted\" ],\r\n          \"description\": \"The client has accepted the invitation. Only the client can set this status\"\r\n        },\r\n        {\r\n          \"enum\": [ \"Rejected\" ],\r\n          \"description\": \"The client has rejected the invitation. Only the client can set this status\"\r\n        },\r\n        {\r\n          \"enum\": [ \"Cancelled\" ],\r\n          \"description\": \"The agency has cancelled the invitation. Only the agency can set this status\"\r\n        }\r\n      ]\r\n    }\r\n  },\r\n  \"required\": [\r\n    \"_links\",\r\n    \"regime\",\r\n    \"clientId\",\r\n    \"postcode\",\r\n    \"arn\",\r\n    \"created\",\r\n    \"lastUpdated\",\r\n    \"status\"\r\n  ]\r\n}"
+                      ],
+                      "example": {
+                        "_links": {
+                          "reject": {
+                            "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe/reject"
+                          },
+                          "accept": {
+                            "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe/accept"
+                          },
+                          "self": {
+                            "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe"
+                          }
+                        },
+                        "created": "2017-01-25T12:54:52.712Z",
+                        "lastUpdated": "2017-01-25T12:54:52.712Z",
+                        "arn": "AARN9999999",
+                        "regime": "mtd-sa",
+                        "clientId": "client123",
+                        "postcode": "A11 1AA",
+                        "status": "Pending"
+                      },
+                      "description": "Returns the invitation.",
+                      "__METADATA__": {
+                        "primitiveValuesMeta": {
+                          "displayName": {
+                            "calculated": true
+                          }
+                        }
+                      },
+                      "structuredExample": {
+                        "value": "{\r\n  \"_links\": {\r\n    \"reject\": {\r\n      \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe/reject\"\r\n    },\r\n    \"accept\": {\r\n      \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe/accept\"\r\n    },\r\n    \"self\": {\r\n      \"href\": \"/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe\"\r\n    }\r\n  },\r\n  \"created\": \"2017-01-25T12:54:52.712Z\",\r\n  \"lastUpdated\": \"2017-01-25T12:54:52.712Z\",\r\n  \"arn\": \"AARN9999999\",\r\n  \"regime\": \"mtd-sa\",\r\n  \"clientId\": \"client123\",\r\n  \"postcode\": \"A11 1AA\",\r\n  \"status\": \"Pending\"\r\n}",
+                        "strict": true,
+                        "name": null,
+                        "structuredValue": {
+                          "_links": {
+                            "reject": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe/reject"
+                            },
+                            "accept": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe/accept"
+                            },
+                            "self": {
+                              "href": "/agent-client-authorisation/clients/client123/invitations/received/5889f1cc5200001200ed1efe"
+                            }
+                          },
+                          "created": "2017-01-25T12:54:52.712Z",
+                          "lastUpdated": "2017-01-25T12:54:52.712Z",
+                          "arn": "AARN9999999",
+                          "regime": "mtd-sa",
+                          "clientId": "client123",
+                          "postcode": "A11 1AA",
+                          "status": "Pending"
+                        }
+                      }
+                    }
+                  }
+                },
+                "401": {
+                  "code": "401",
+                  "description": "The client must be authenticated and authorised (logged-in) to use this resource"
+                },
+                "403": {
+                  "code": "403",
+                  "description": "The client is not permitted to reject this invitation, for example because it has already been accepted, rejected or cancelled."
+                },
+                "404": {
+                  "code": "404",
+                  "description": "The invitation with the specified id does not exist."
+                }
+              },
+              "protocols": [
+                "HTTPS"
+              ],
+              "securedBy": [
+                {
+                  "sec.oauth_2_0": {
+                    "scopes": [
+                      "read:received-invitations"
+                    ]
+                  }
+                }
+              ],
+              "description": "Retrieve a received invitation.",
+              "displayName": "Get a received invitation",
+              "method": "get",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "protocols": {
+                    "calculated": true
+                  }
+                }
+              }
+            }
+          ],
+          "is": [
+            "headers.acceptHeader",
+            "loginRequired",
+            "mustBeASaClient",
+            "clientRegistrationRequired",
+            "permissionOnClientRequired",
+            "invitationSpecified"
+          ],
+          "uriParameters": {
+            "invitationId": {
+              "name": "invitationId",
+              "displayName": "invitationId",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "string"
+              ],
+              "example": "5888c22e11000011007afc11",
+              "required": true,
+              "description": "The id of the invitation.",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  },
+                  "required": {
+                    "insertedAsDefault": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "5888c22e11000011007afc11",
+                "strict": true,
+                "name": null,
+                "structuredValue": "5888c22e11000011007afc11"
+              }
+            }
+          },
+          "relativeUri": "/{invitationId}",
+          "displayName": "/{invitationId}",
+          "resources": [
+            {
+              "methods": [
+                {
+                  "annotations": {
+                    "annotations.scope": {
+                      "structuredValue": "write:received-invitations",
+                      "name": "annotations.scope"
+                    }
+                  },
+                  "responses": {
+                    "204": {
+                      "code": "204",
+                      "description": "Invitation has been accepted."
+                    },
+                    "401": {
+                      "code": "401",
+                      "description": "The client must be authenticated and authorised (logged-in) to use this resource"
+                    },
+                    "403": {
+                      "code": "403",
+                      "description": "The client is not permitted to reject this invitation, for example because it has already been accepted, rejected or cancelled."
+                    },
+                    "404": {
+                      "code": "404",
+                      "description": "The invitation with the specified id does not exist."
+                    }
+                  },
+                  "protocols": [
+                    "HTTPS"
+                  ],
+                  "securedBy": [
+                    {
+                      "sec.oauth_2_0": {
+                        "scopes": [
+                          "write:received-invitations"
+                        ]
+                      }
+                    }
+                  ],
+                  "description": "Accept an invitation.",
+                  "displayName": "Accept an invitation",
+                  "method": "put",
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "protocols": {
+                        "calculated": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "is": [
+                "headers.acceptHeader",
+                "loginRequired",
+                "mustBeASaClient",
+                "clientRegistrationRequired",
+                "permissionOnClientRequired",
+                "invitationSpecified",
+                "invitationMustHaveValidStatus"
+              ],
+              "relativeUri": "/accept",
+              "displayName": "/accept",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "relativeUriPathSegments": [
+                "accept"
+              ],
+              "absoluteUri": "https://api.service.hmrc.gov.uk/agent-client-authorisation/clients/{clientId}/invitations/received/{invitationId}/accept"
+            },
+            {
+              "methods": [
+                {
+                  "annotations": {
+                    "annotations.scope": {
+                      "structuredValue": "write:received-invitations",
+                      "name": "annotations.scope"
+                    }
+                  },
+                  "responses": {
+                    "204": {
+                      "code": "204",
+                      "description": "Invitation has been rejected."
+                    },
+                    "401": {
+                      "code": "401",
+                      "description": "The client must be authenticated and authorised (logged-in) to use this resource"
+                    },
+                    "403": {
+                      "code": "403",
+                      "description": "The client is not permitted to reject this invitation."
+                    },
+                    "404": {
+                      "code": "404",
+                      "description": "The invitation with the specified id does not exist."
+                    }
+                  },
+                  "protocols": [
+                    "HTTPS"
+                  ],
+                  "securedBy": [
+                    {
+                      "sec.oauth_2_0": {
+                        "scopes": [
+                          "write:received-invitations"
+                        ]
+                      }
+                    }
+                  ],
+                  "description": "Reject an invitation.",
+                  "displayName": "Reject an invitation",
+                  "method": "put",
+                  "__METADATA__": {
+                    "primitiveValuesMeta": {
+                      "protocols": {
+                        "calculated": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "is": [
+                "headers.acceptHeader",
+                "loginRequired",
+                "mustBeASaClient",
+                "clientRegistrationRequired",
+                "permissionOnClientRequired",
+                "invitationSpecified",
+                "invitationMustHaveValidStatus"
+              ],
+              "relativeUri": "/reject",
+              "displayName": "/reject",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  }
+                }
+              },
+              "relativeUriPathSegments": [
+                "reject"
+              ],
+              "absoluteUri": "https://api.service.hmrc.gov.uk/agent-client-authorisation/clients/{clientId}/invitations/received/{invitationId}/reject"
+            }
+          ],
+          "__METADATA__": {
+            "primitiveValuesMeta": {
+              "displayName": {
+                "calculated": true
+              }
+            }
+          },
+          "relativeUriPathSegments": [
+            "{invitationId}"
+          ],
+          "absoluteUri": "https://api.service.hmrc.gov.uk/agent-client-authorisation/clients/{clientId}/invitations/received/{invitationId}"
+        }
+      ],
+      "__METADATA__": {
+        "primitiveValuesMeta": {
+          "displayName": {
+            "calculated": true
+          }
+        }
+      },
+      "relativeUriPathSegments": [
+        "agent-client-authorisation",
+        "clients",
+        "{clientId}",
+        "invitations",
+        "received"
+      ],
+      "absoluteUri": "https://api.service.hmrc.gov.uk/agent-client-authorisation/clients/{clientId}/invitations/received"
+    }
+  ],
+  "documentation": [
+    {
+      "title": "Overview",
+      "content": "An API for agents and clients akin to the paper 64-8 form.\r\n  \r\nThe production version of this API is not yet available, only the test version which should be accessed using your test credentials.  Breaking changes are expected before this API is finalised.\r\n"
+    },
+    {
+      "title": "Versioning",
+      "content": "Specific versions are requested by providing an Accept header. When\nbackwards-incompatible API changes are made, a new version will be released.\nBackwards-compatible changes are released in the current version without the\nneed to change your Accept header.  See our [reference guide](/api-documentation/docs/reference-guide#versioning) for more on\nversioning.\n"
+    },
+    {
+      "title": "Errors",
+      "content": "HMRC uses standard [HTTP status codes](/api-documentation/docs/reference-guide#http-status-codes) to indicate the success or failure of an\nAPI request. In general, status codes in the 2xx range indicate success. Status\ncodes in the 4xx range indicate a client error, and have a consistently formed\nJSON response body. Codes in the 5xx range indicate errors on the HMRC server.\nAPI-specific errors are shown in the relevant resource's response detail. See\nour [reference guide](/api-documentation/docs/reference-guide#errors) for more on errors.\n"
+    }
+  ]
+}
