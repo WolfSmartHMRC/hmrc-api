@@ -4,12 +4,28 @@
   "description": "Tools for processing hmrc api specs",
   "main": "index.js",
   "scripts": {
-    "parseSA": "node tools/parse/parseSA.js",
-    "parseACA": "node tools/parse/parseAgentClientAuth.js"
+    "genSchema": "node tools/raml2jsonSchema apis",
   },
   "author": "andy@wolfsmart.net",
   "license": "MIT",
   "dependencies": {
-    "raml-1-parser": "^1.1.19"
+    "api-spec-transformer": "^0.2.3",
+    "json-schema-ref-parser": "^3.1.2",
+    "jsonfile": "^2.4.0",
+    "oas-raml-converter": "^0.2.2",
+    "osprey": "^0.4.1",
+    "osprey-cli": "^0.1.3",
+    "osprey-mock-service": "^0.2.1",
+    "raml-1-parser": "1.1.20",
+    "raml-client-generator": "^0.1.1",
+    "raml-generator": "^1.0.0-3",
+    "raml-javascript-generator": "^1.0.0-0",
+    "raml-to-swagger": "^1.1.0",
+    "raml-typescript-generator": "^1.1.1",
+    "raml2html": "^6.1.1",
+    "raml2html-markdown-theme": "^1.0.1",
+    "raml2md": "^4.0.0",
+    "raml2mz": "^0.1.5",
+    "shelljs": "^0.7.7"
   }
 }
