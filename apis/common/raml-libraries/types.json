@@ -1,0 +1,71 @@
+{
+  "types": [
+    {
+      "errorResponse": {
+        "name": "errorResponse",
+        "displayName": "errorResponse",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "code": {
+            "name": "code",
+            "displayName": "code",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "type": [
+              "string"
+            ],
+            "required": true,
+            "__METADATA__": {
+              "primitiveValuesMeta": {
+                "displayName": {
+                  "calculated": true
+                },
+                "required": {
+                  "insertedAsDefault": true
+                }
+              }
+            }
+          }
+        },
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            },
+            "type": {
+              "insertedAsDefault": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "taxYear": {
+        "name": "taxYear",
+        "displayName": "taxYear",
+        "typePropertyKind": "TYPE_EXPRESSION",
+        "type": [
+          "string"
+        ],
+        "example": "2016-17",
+        "pattern": "^[0-9]{4}-[0-9]{2}$",
+        "__METADATA__": {
+          "primitiveValuesMeta": {
+            "displayName": {
+              "calculated": true
+            }
+          }
+        },
+        "structuredExample": {
+          "value": "2016-17",
+          "strict": true,
+          "name": null,
+          "structuredValue": "2016-17"
+        }
+      }
+    }
+  ],
+  "usage": "Collection of common types"
+}

@@ -1,0 +1,67 @@
+{
+  "traits": [
+    {
+      "acceptHeader": {
+        "headers": {
+          "Accept": {
+            "name": "Accept",
+            "displayName": "Accept",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "type": [
+              "string"
+            ],
+            "example": "application/vnd.hmrc.1.0+json",
+            "required": true,
+            "description": "Specifies the version of the API that you want to call. See [versioning](/api-documentation/docs/reference-guide#versioning).",
+            "__METADATA__": {
+              "primitiveValuesMeta": {
+                "displayName": {
+                  "calculated": true
+                }
+              }
+            },
+            "structuredExample": {
+              "value": "application/vnd.hmrc.1.0+json",
+              "strict": true,
+              "name": null,
+              "structuredValue": "application/vnd.hmrc.1.0+json"
+            }
+          }
+        },
+        "name": "acceptHeader"
+      }
+    },
+    {
+      "contentHeader": {
+        "headers": {
+          "Content-Type": {
+            "name": "Content-Type",
+            "displayName": "Content-Type",
+            "typePropertyKind": "TYPE_EXPRESSION",
+            "type": [
+              "string"
+            ],
+            "example": "application/vnd.hmrc.1.0+json",
+            "required": true,
+            "description": "Specifies the format of the request body, which must be JSON.",
+            "__METADATA__": {
+              "primitiveValuesMeta": {
+                "displayName": {
+                  "calculated": true
+                }
+              }
+            },
+            "structuredExample": {
+              "value": "application/vnd.hmrc.1.0+json",
+              "strict": true,
+              "name": null,
+              "structuredValue": "application/vnd.hmrc.1.0+json"
+            }
+          }
+        },
+        "name": "contentHeader"
+      }
+    }
+  ],
+  "usage": "Collection of common headers"
+}

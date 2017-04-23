@@ -1,0 +1,99 @@
+{
+  "securitySchemes": [
+    {
+      "oauth_2_0": {
+        "name": "oauth_2_0",
+        "type": "OAuth 2.0",
+        "description": "HMRC supports OAuth 2.0 for authenticating User-restricted API requests",
+        "describedBy": {
+          "headers": {
+            "Authorization": {
+              "name": "Authorization",
+              "displayName": "Authorization",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "string"
+              ],
+              "required": true,
+              "description": "Used to send a valid OAuth 2 access token",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  },
+                  "required": {
+                    "insertedAsDefault": true
+                  }
+                }
+              }
+            }
+          },
+          "responses": [
+            {
+              "code": "401",
+              "description": "Bad or expired token.\nThis can happen if the user or HMRC revoked or expired an access token.\nTo fix, you should re-authenticate the user.\n"
+            },
+            {
+              "code": "403",
+              "description": "Bad OAuth request (wrong consumer key, bad nonce, expired\ntimestamp...). Unfortunately, re-authenticating the user won't help here.\n"
+            }
+          ]
+        },
+        "settings": {
+          "accessTokenUri": "https://api.service.hmrc.gov.uk/oauth/token",
+          "authorizationUri": "https://api.service.hmrc.gov.uk/oauth/authorize",
+          "authorizationGrants": [
+            "authorization_code",
+            "client_credentials"
+          ],
+          "scopes": [
+            "write:self-assessment",
+            "read:self-assessment",
+            "write:sent-invitations",
+            "read:sent-invitations",
+            "write:received-invitations",
+            "read:received-invitations"
+          ]
+        }
+      }
+    },
+    {
+      "x-application": {
+        "name": "x-application",
+        "type": "x-application",
+        "description": "Application restricted endpoints require a server token. This must be passed as an Authorization header with type Bearer.",
+        "describedBy": {
+          "headers": {
+            "Authorization": {
+              "name": "Authorization",
+              "displayName": "Authorization",
+              "typePropertyKind": "TYPE_EXPRESSION",
+              "type": [
+                "string"
+              ],
+              "example": "Authorization: Bearer [YOUR-SERVER-TOKEN]",
+              "required": true,
+              "description": "Used to send the server token.",
+              "__METADATA__": {
+                "primitiveValuesMeta": {
+                  "displayName": {
+                    "calculated": true
+                  },
+                  "required": {
+                    "insertedAsDefault": true
+                  }
+                }
+              },
+              "structuredExample": {
+                "value": "Authorization: Bearer [YOUR-SERVER-TOKEN]",
+                "strict": true,
+                "name": null,
+                "structuredValue": "Authorization: Bearer [YOUR-SERVER-TOKEN]"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
