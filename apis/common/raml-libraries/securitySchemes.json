@@ -47,7 +47,12 @@
             "client_credentials"
           ],
           "scopes": [
-            null
+            "write:self-assessment",
+            "read:self-assessment",
+            "write:sent-invitations",
+            "read:sent-invitations",
+            "write:received-invitations",
+            "read:received-invitations"
           ]
         }
       }

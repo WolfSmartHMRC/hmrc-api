@@ -2,19 +2,19 @@
   "uses": [
     {
       "key": "sec",
-      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml"
+      "value": "../../apis/common/raml-libraries/securitySchemes.raml"
     },
     {
       "key": "headers",
-      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/headers.raml"
+      "value": "../../apis/common/raml-libraries/headers.raml"
     },
     {
       "key": "annotations",
-      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml"
+      "value": "../../apis/common/raml-libraries/annotations.raml"
     },
     {
       "key": "types",
-      "value": "https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml"
+      "value": "../../apis/common/raml-libraries/types.raml"
     }
   ],
   "traits": [
@@ -62,7 +62,7 @@
             "type": [
               "string"
             ],
-            "example": "application/json",
+            "example": "application/vnd.hmrc.1.0+json",
             "required": true,
             "description": "Specifies the format of the request body, which must be JSON.",
             "__METADATA__": {
@@ -73,10 +73,10 @@
               }
             },
             "structuredExample": {
-              "value": "application/json",
+              "value": "application/vnd.hmrc.1.0+json",
               "strict": true,
               "name": null,
-              "structuredValue": "application/json"
+              "structuredValue": "application/vnd.hmrc.1.0+json"
             }
           }
         },
@@ -7865,11 +7865,11 @@
     },
     {
       "title": "Versioning",
-      "content": "Specific versions are requested by providing an Accept header. When\nbackwards-incompatible API changes are made, a new version will be released.\nBackwards-compatible changes are released in the current version without the\nneed to change your Accept header.  See our [reference guide](/api-documentation/docs/reference-guide#versioning) for more on\nversioning.\n"
+      "content": "Specific versions are requested by providing an Accept header. When\r\nbackwards-incompatible API changes are made, a new version will be released.\r\nBackwards-compatible changes are released in the current version without the\r\nneed to change your Accept header.  See our\r\n[reference guide](/api-documentation/docs/reference-guide#versioning)\r\nfor more on versioning.\r\n"
     },
     {
       "title": "Errors",
-      "content": "HMRC uses standard [HTTP status codes](/api-documentation/docs/reference-guide#http-status-codes) to indicate the success or failure of an\nAPI request. In general, status codes in the 2xx range indicate success. Status\ncodes in the 4xx range indicate a client error, and have a consistently formed\nJSON response body. Codes in the 5xx range indicate errors on the HMRC server.\nAPI-specific errors are shown in the relevant resource's response detail. See\nour [reference guide](/api-documentation/docs/reference-guide#errors) for more on errors.\n"
+      "content": "HMRC uses standard\r\n[HTTP status codes](/api-documentation/docs/reference-guide#http-status-codes)\r\nto indicate the success or failure of an API request. In general, status codes\r\nin the 2xx range indicate success. Status codes in the 4xx range indicate a\r\nclient error, and have a consistently formed JSON response body. Codes in the\r\n5xx range indicate errors on the HMRC server. API-specific errors are shown in\r\nthe relevant resource's response detail. See our\r\n[reference guide](/api-documentation/docs/reference-guide#errors)\r\nfor more on errors.\r\n"
     },
     {
       "title": "Error Codes",

@@ -10,15 +10,15 @@ documentation:
  - title: Overview
    content: !include docs/overview.md
  - title: Versioning
-   content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/versioning.md
+   content: !include ../../../apis/common/documentation/versioning.md
  - title: Errors
-   content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/errors.md
+   content: !include ../../../apis/common/documentation/errors.md
 
 uses:
-  sec: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml
-  headers: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/headers.raml
-  annotations: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml
-  types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
+  sec: ../../../apis/common/raml-libraries/securitySchemes.raml
+  headers: ../../../apis/common/raml-libraries/headers.raml
+  annotations: ../../../apis/common/raml-libraries/annotations.raml
+  types: ../../../apis/common/raml-libraries/types.raml
 
 types:
 
