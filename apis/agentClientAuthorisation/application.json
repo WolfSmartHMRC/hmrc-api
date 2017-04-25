@@ -2,19 +2,19 @@
   "uses": [
     {
       "key": "sec",
-      "value": "../../../apis/common/raml-libraries/securitySchemes.raml"
+      "value": "../../apis/common/raml-libraries/securitySchemes.raml"
     },
     {
       "key": "headers",
-      "value": "../../../apis/common/raml-libraries/headers.raml"
+      "value": "../../apis/common/raml-libraries/headers.raml"
     },
     {
       "key": "annotations",
-      "value": "../../../apis/common/raml-libraries/annotations.raml"
+      "value": "../../apis/common/raml-libraries/annotations.raml"
     },
     {
       "key": "types",
-      "value": "../../../apis/common/raml-libraries/types.raml"
+      "value": "../../apis/common/raml-libraries/types.raml"
     }
   ],
   "types": [

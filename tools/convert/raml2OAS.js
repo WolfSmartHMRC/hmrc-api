@@ -5,14 +5,15 @@ const fs = require("fs");
 const path = require("path");
 const raml1Parser = require('raml-1-parser');
 const jsFile = require('jsonfile');
-//const conv = require('api-spec-converter');
-const conv = require('api-spec-transformer');
+//const conv = require('api-spec-converter');   // -1
+//const conv = require('api-spec-transformer');   // -1
+const conv = require('oas-raml-converter');  
 
 // get params
 //var folder = process.argv[2];
 var folder = [
-    //'apis/SA',
-    'apis/agent/clientAuthorisation'
+    'apis/SA'
+    //'apis/agentClientAuthorisation'
 ];
 
 // iterate raml folders in file
@@ -34,7 +35,7 @@ find(folder)
         rm('-f', errorsPath);
 
         // convert
-        /* 0.8 doh!
+        /*  api-spec-converter 0.8 doh!
         conv.convert({
             from: 'raml',
             to: 'swagger_2',
@@ -49,22 +50,29 @@ find(folder)
         });
         */
 
-        var ramlToSwagger = new conv.Converter(conv.Formats.RAML10, conv.Formats.SWAGGER);
-        
-        ramlToSwagger.loadFile(f, function(err) {
-        if (err) {
-            jsFile.writeFileSync(errorsPath, err, {spaces: 2});
-            return;
-        }
+        var ramlToSwagger = new conv.Converter(conv.Formats.RAML10, conv.Formats.OAS);
+        console.log('Created Converter');
+
+        var x = ramlToSwagger.loadFile(f, (err) => {
+            if (err) {
+                console.log('Error loading '+f+'@'+err);
+                jsFile.writeFileSync(errorsPath, err, {spaces: 2});
+                return;
+            }
+        });
+        console.log('Loaded '+f);
         
         ramlToSwagger.convert('yaml')
-            .then(function(convertedData) {
+            .then((convertedData) => {
                 fs.writeFileSync(docPath, h);
+                console.log("finito OK");
             })
-            .catch(function(err){
-                jsFile.writeFileSync(errorsPath, err, {spaces: 2});
+            .catch((err) => {
+                var x = JSON.stringify(err, null, 2)
+                fs.writeFileSync(errorsPath, x);
+                console.log("finito FAIL");
             });
         });        
-    });
+    
 
 console.log("finito");

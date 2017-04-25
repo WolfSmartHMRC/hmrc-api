@@ -11,7 +11,7 @@ const raml2html = require('raml2html');
 //var folder = process.argv[2];
 var folder = [
     'apis/SA',
-    'apis/agent/clientAuthorisation'
+    'apis/agentClientAuthorisation'
 ];
 
 // iterate raml folders in file
